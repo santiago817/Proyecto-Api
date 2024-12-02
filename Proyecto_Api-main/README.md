@@ -65,4 +65,4 @@ Paso a paso para desarrollar el proyecto:
 Opcional: Automatización y Monitoreo
 Si deseas automatizar este proceso, podrías usar un cron job en Linux
 o el Programador de Tareas en Windows para ejecutar el script en
-intervalos regulares.
+intervalos regulares..
