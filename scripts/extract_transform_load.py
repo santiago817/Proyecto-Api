@@ -23,7 +23,7 @@ def extract_weather_data():
 
 # Función para transformar los datos
 def transform_weather_data(data):
-    # Convertir los datos extraídos en un DataFrame para visualizarlos mejor
+    # Convertir los datos extraídos en un DataFrame
     weather_data = {
         "Ciudad": [data["name"]],
         "Temperatura (°C)": [data["main"]["temp"] - 273.15],  # Convertimos de Kelvin a Celsius
@@ -44,15 +44,15 @@ def transform_weather_data(data):
 def insert_weather_data_to_sql(df):
     # Conexión a SQL Server
     conexion = pyodbc.connect('DRIVER={SQL Server};'
-                               'SERVER=DESKTOP-7AGUG97;'  # Cambia esto si tu servidor está en una IP o tiene un nombre de instancia
+                               'SERVER=;'
                                'DATABASE=weather_db;'
-                               'UID=santiago;'
-                               'PWD=123')
+                               'UID=;'
+                               'PWD=')
 
     # Crear un cursor para insertar los datos
     cursor = conexion.cursor()
 
-    # Insertar los datos del DataFrame en la tabla (asegúrate de que la tabla exista)
+    # Insertar los datos del DataFrame en la tabla
     for _, row in df.iterrows():
         cursor.execute("""
             INSERT INTO weather_table (Ciudad, Temperatura, Descripcion, Humedad, Viento, Presion, Latitud, Longitud)
